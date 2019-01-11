@@ -12,8 +12,8 @@
 
     <div th:if="${items} and ${items.size()}">
 
-        <table th:each="item_num, idx : ${items}" th:class="${idx.odd} ? 'odd'">
-            <tr th:each="item_num, idx : ${items}" th:class="${idx.odd} ? 'odd'">
+        <table th:each="item, idx : ${items}" th:class="${idx.odd} ? 'odd'">
+            <tr th:each="item, idx : ${items}" th:class="${idx.odd} ? 'odd'">
                 <td><a th:href="@{/list/jobs(column=${column},value=${item})}" th:text="${item}"></a></td>
             </tr>
         </table>
