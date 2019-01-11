@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<div th:replace="fragments :: page-header"></div>
+<div th:replace="fragments :: page-header" class="navbar navbar-inverse navbar-fixed-top"></div>
 
 <div class="container body-content">
 
@@ -37,8 +37,18 @@
     <hr />
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
+    <h3 th:text="${#strings.capitalizeWords(title2)}"></h3>
+    <div th:if="${jobs} and ${jobs.size()}">
 
-</div>
+        <table th:fragment="jobs" th:each="job, idx : ${jobs}" th:class="job-listing">
+            <tr th:each="job_item, idx : ${job}" th:class="${idx.odd} ? 'odd'">
+                <td th:text = "${job_item.key}"></td>
+                <td th:text = "${job_item.value}"></td>
+            </tr>
+        </table>
 
-</body>
-</html>
+    </div>
+ </div>
+
+ </body>
+ </html>
